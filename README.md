@@ -7,3 +7,7 @@
 ### Day 01 - [Counting Calories](https://adventofcode.com/2022/day/1)
 * Max Amount: 71934 
 * Sum of Top Three: 211447 
+
+### Day 02 - [Rock Paper Scissors](https://adventofcode.com/2022/day/2)
+* Total points for first part: 15337 
+* Total points for second part: 11696 
