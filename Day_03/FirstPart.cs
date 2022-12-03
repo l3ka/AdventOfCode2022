@@ -2,6 +2,10 @@
 
 public class FirstPart
 {
+    private const char CHARACTER_UPPER_A = 'A';
+    private const char CHARACTER_UPPER_Z = 'Z';
+    private const char CHARACTER_LOWWER_A = 'a';
+
     private const string FILE_NAME = "Day03.txt";
     private readonly string PATH;
 
@@ -16,14 +20,14 @@ public class FirstPart
     {
         string[] lines = await File.ReadAllLinesAsync(PATH);
 
-        int priorityGroupSum = 0;
+        int prioritySum = 0;
 
         foreach (string line in lines)
         {
-            priorityGroupSum += FindCommon(line);
+            prioritySum += FindCommon(line);
         }
 
-        return priorityGroupSum;
+        return prioritySum;
     }
 
     private static int FindCommon(string word)
@@ -36,9 +40,9 @@ public class FirstPart
         HashSet<char> firstPart = new();
         HashSet<char> secondPart = new();
 
-        for (int i = 0; i < word.Length; i++)
+        for (int i = 0; i < word.Length; ++i)
         {
-            if (i < word.Length  / 2)
+            if (i < word.Length / 2)
             {
                 firstPart.Add(word[i]);
             }
@@ -48,22 +52,10 @@ public class FirstPart
             }
         }
 
-        char? commonCharacter = firstPart.Intersect(secondPart).FirstOrDefault();
-        int priority = 0;
+        char commonCharacter = firstPart.Intersect(secondPart).FirstOrDefault();
 
-        if (!commonCharacter.HasValue)
-        {
-            return 0;
-        }
-        else if (commonCharacter >= 'A' && commonCharacter <= 'Z')
-        {
-            priority = (int)(commonCharacter - 'A' + 27);
-        }
-        else if (commonCharacter >= 'a' && commonCharacter <= 'z')
-        {
-            priority = (int)(commonCharacter - 'a' + 1);
-        }
-
-        return priority;
+        return commonCharacter >= CHARACTER_UPPER_A && commonCharacter <= CHARACTER_UPPER_Z ?
+            commonCharacter - CHARACTER_UPPER_A + 27 :
+            commonCharacter - CHARACTER_LOWWER_A + 1;
     }
 }

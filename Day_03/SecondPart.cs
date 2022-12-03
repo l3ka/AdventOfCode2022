@@ -2,6 +2,10 @@
 
 public class SecondPart
 {
+    private const char CHARACTER_UPPER_A = 'A';
+    private const char CHARACTER_UPPER_Z = 'Z';
+    private const char CHARACTER_LOWWER_A = 'a';
+
     private const string FILE_NAME = "Day03.txt";
     private readonly string PATH;
 
@@ -16,60 +20,41 @@ public class SecondPart
     {
         string[] lines = await File.ReadAllLinesAsync(PATH);
 
-        int prioritySum = 0;
+        int priorityGroupSum = 0;
 
         for (int i = 0; i < lines.Length - 2; i += 3)
         {
-            string firstWord = lines[i];
-            string secondWord = lines[i + 1];
-            string thirdWord = lines[i + 2];
-
-            prioritySum += FindCommon(firstWord, secondWord, thirdWord);
+            priorityGroupSum += FindCommon(lines[i], lines[i + 1], lines[i + 2]);
         }
 
-        return prioritySum;
+        return priorityGroupSum;
     }
 
     private static int FindCommon(string firstWord, string secondWord, string thirdWord)
     {
-        if (string.IsNullOrWhiteSpace(firstWord) && string.IsNullOrWhiteSpace(secondWord) && string.IsNullOrWhiteSpace(thirdWord))
-        {
-            return 0;
-        }
+        HashSet<char> firstCharacterSet = CreateCharacterHashSet(firstWord);
+        HashSet<char> secondCharacterSet = CreateCharacterHashSet(secondWord);
+        HashSet<char> thirdCharacterSet = CreateCharacterHashSet(thirdWord);
 
-        HashSet<char> firstCharacterSet = new();
-        HashSet<char> secondCharacterSet = new();
-        HashSet<char> thirdCharacterSet = new();
+        char commonCharacter = firstCharacterSet
+            .Intersect(secondCharacterSet)
+            .Intersect(thirdCharacterSet)
+            .FirstOrDefault();
 
-        foreach (var character in firstWord)
-        {
-            firstCharacterSet.Add(character);
-        }
-        foreach (var character in secondWord)
-        {
-            secondCharacterSet.Add(character);
-        }
-        foreach (var character in thirdWord)
-        {
-            thirdCharacterSet.Add(character);
-        }
+        return commonCharacter >= CHARACTER_UPPER_A && commonCharacter <= CHARACTER_UPPER_Z ?
+            commonCharacter - CHARACTER_UPPER_A + 27 :
+            commonCharacter - CHARACTER_LOWWER_A + 1;
+    }
 
-        char? commonCharacter = firstCharacterSet.Intersect(secondCharacterSet).Intersect(thirdCharacterSet).FirstOrDefault();
-        int priority = 0;
+    private static HashSet<char> CreateCharacterHashSet(string word)
+    {
+        HashSet<char> characterSet = new();
 
-        if (!commonCharacter.HasValue)
+        foreach (var character in word)
         {
-            return 0;
+            characterSet.Add(character);
         }
-        else if (commonCharacter >= 'A' && commonCharacter <= 'Z')
-        {
-            priority = (int)(commonCharacter - 'A' + 27);
-        }
-        else if (commonCharacter >= 'a' && commonCharacter <= 'z')
-        {
-            priority = (int)(commonCharacter - 'a' + 1);
-        }
-
-        return priority;
+        
+        return characterSet;
     }
 }
