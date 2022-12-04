@@ -15,3 +15,7 @@
 ### Day 03 - [Rucksack Reorganization](https://adventofcode.com/2022/day/3)
 * Priority Sum: 7878 
 * Priority Group Sum: 2760 
+
+### Day 04 - [Camp Cleanup](https://adventofcode.com/2022/day/4)
+* Fully Contain Ranges: 485 
+* Range Overlaps: 857 
