@@ -19,3 +19,7 @@
 ### Day 04 - [Camp Cleanup](https://adventofcode.com/2022/day/4)
 * Fully Contain Ranges: 485 
 * Range Overlaps: 857 
+
+### Day 05 - [Supply Stacks](https://adventofcode.com/2022/day/5)
+* Crates: QNNTGTPFN 
+* Crates: GGNPJBTTR 
