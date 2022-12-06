@@ -4,7 +4,7 @@ public class SecondPart
 {
     private const char CHARACTER_UPPER_A = 'A';
     private const char CHARACTER_UPPER_Z = 'Z';
-    private const char CHARACTER_LOWWER_A = 'a';
+    private const char CHARACTER_LOWER_A = 'a';
 
     private const string FILE_NAME = "Day03.txt";
     private readonly string PATH;
@@ -24,13 +24,13 @@ public class SecondPart
 
         for (int i = 0; i < lines.Length - 2; i += 3)
         {
-            priorityGroupSum += FindCommon(lines[i], lines[i + 1], lines[i + 2]);
+            priorityGroupSum += CalculatePriority(lines[i], lines[i + 1], lines[i + 2]);
         }
 
         return priorityGroupSum;
     }
 
-    private static int FindCommon(string firstWord, string secondWord, string thirdWord)
+    private static int CalculatePriority(string firstWord, string secondWord, string thirdWord)
     {
         HashSet<char> firstCharacterSet = CreateCharacterHashSet(firstWord);
         HashSet<char> secondCharacterSet = CreateCharacterHashSet(secondWord);
@@ -43,7 +43,7 @@ public class SecondPart
 
         return commonCharacter >= CHARACTER_UPPER_A && commonCharacter <= CHARACTER_UPPER_Z ?
             commonCharacter - CHARACTER_UPPER_A + 27 :
-            commonCharacter - CHARACTER_LOWWER_A + 1;
+            commonCharacter - CHARACTER_LOWER_A + 1;
     }
 
     private static HashSet<char> CreateCharacterHashSet(string word)

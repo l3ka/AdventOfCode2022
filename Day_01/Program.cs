@@ -15,26 +15,23 @@ public class Program
 
     private static async Task FirstSolution()
     {
-        Console.WriteLine("First Solution");
+        Console.WriteLine("First Part");
 
-        Solution solution = new();
-        int maxAmount = await solution.FindMaxAmount();
-        int sumOfTopThree = await solution.FindSumOfTopThree();
+        FirstPart solution = new();
+        int maxAmount = await solution.Calculate();
 
         Console.WriteLine($"Max Amount: {maxAmount}");
-        Console.WriteLine($"Sum of Top Three: {sumOfTopThree}");
         Console.WriteLine();
     }
 
     private static async Task SecondSolution()
     {
-        Console.WriteLine("Second Solution");
+        Console.WriteLine("Second Part");
 
-        AdvancedSolution solutionAdvanced = new();
-        await solutionAdvanced.Calculate();
+        SecondPart solution = new();
+        int sumOfTopThree = await solution.Calculate();
 
-        Console.WriteLine($"Max Amount: {solutionAdvanced.MaxAmount}");
-        Console.WriteLine($"Sum of Top Three: {solutionAdvanced.SumOfTopThree}");
+        Console.WriteLine($"Sum of Top Three: {sumOfTopThree}");
         Console.WriteLine();
     }
 }

@@ -2,13 +2,21 @@
 
 public class FirstPart
 {
-    private const string ELFS_ROCK = "A";
-    private const string ELFS_PAPER = "B";
-    private const string ELFS_SCISOR = "C";
+    private const string ELFS_CHOICE_ROCK = "A";
+    private const string ELFS_CHOICE_PAPER = "B";
+    private const string ELFS_CHOICE_SCISOR = "C";
 
-    private const string MY_ROCK = "X";
-    private const string MY_PAPER = "Y";
-    private const string MY_SCISOR = "Z";
+    private const string MY_CHOICE_ROCK = "X";
+    private const string MY_CHOICE_PAPER = "Y";
+    private const string MY_CHOICE_SCISOR = "Z";
+
+    private const int POINT_FOR_SHAPE_SELECTED_ROCK = 1;
+    private const int POINT_FOR_SHAPE_SELECTED_PAPER = 2;
+    private const int POINT_FOR_SHAPE_SELECTED_SCISSORS = 3;
+
+    private const int POINT_FOR_OUTCOME_ROUND_WIN = 6;
+    private const int POINT_FOR_OUTCOME_ROUND_DRAW = 3;
+    private const int POINT_FOR_OUTCOME_ROUND_LOSE = 0;
 
     private const string FILE_NAME = "Day02.txt";
     private readonly string PATH;
@@ -31,36 +39,39 @@ public class FirstPart
             string elfsMove = line.Split(' ')[0];
             string myMove = line.Split(' ')[1];
 
-            int pointsForShapeSelected = myMove == MY_ROCK ? 1 : myMove == MY_PAPER ? 2 : 3;
+            int pointsForShapeSelected = 
+                myMove == MY_CHOICE_ROCK ? POINT_FOR_SHAPE_SELECTED_ROCK : 
+                myMove == MY_CHOICE_PAPER ? POINT_FOR_SHAPE_SELECTED_PAPER :
+                POINT_FOR_SHAPE_SELECTED_SCISSORS;
             int pointsForOutcomeOfTheRound = 0;
 
-            if (elfsMove == ELFS_ROCK)
+            if (elfsMove == ELFS_CHOICE_ROCK)
             {
                 pointsForOutcomeOfTheRound = myMove switch
                 {
-                    MY_ROCK => 3,
-                    MY_PAPER => 6,
-                    MY_SCISOR => 0,
+                    MY_CHOICE_ROCK => POINT_FOR_OUTCOME_ROUND_DRAW,
+                    MY_CHOICE_PAPER => POINT_FOR_OUTCOME_ROUND_WIN,
+                    MY_CHOICE_SCISOR => POINT_FOR_OUTCOME_ROUND_LOSE,
                     _ => throw new NotSupportedException()
                 };
             }
-            else if (elfsMove == ELFS_PAPER)
+            else if (elfsMove == ELFS_CHOICE_PAPER)
             {
                 pointsForOutcomeOfTheRound = myMove switch
                 {
-                    MY_ROCK => 0,
-                    MY_PAPER => 3,
-                    MY_SCISOR => 6,
+                    MY_CHOICE_ROCK => POINT_FOR_OUTCOME_ROUND_LOSE,
+                    MY_CHOICE_PAPER => POINT_FOR_OUTCOME_ROUND_DRAW,
+                    MY_CHOICE_SCISOR => POINT_FOR_OUTCOME_ROUND_WIN,
                     _ => throw new NotSupportedException()
                 };
             }
-            else if (elfsMove == ELFS_SCISOR)
+            else if (elfsMove == ELFS_CHOICE_SCISOR)
             {
                 pointsForOutcomeOfTheRound = myMove switch
                 {
-                    MY_ROCK => 6,
-                    MY_PAPER => 0,
-                    MY_SCISOR => 3,
+                    MY_CHOICE_ROCK => POINT_FOR_OUTCOME_ROUND_WIN,
+                    MY_CHOICE_PAPER => POINT_FOR_OUTCOME_ROUND_LOSE,
+                    MY_CHOICE_SCISOR => POINT_FOR_OUTCOME_ROUND_DRAW,
                     _ => throw new NotSupportedException()
                 };
             }
