@@ -4,7 +4,7 @@ public class FirstPart
 {
     private const char CHARACTER_UPPER_A = 'A';
     private const char CHARACTER_UPPER_Z = 'Z';
-    private const char CHARACTER_LOWWER_A = 'a';
+    private const char CHARACTER_LOWER_A = 'a';
 
     private const string FILE_NAME = "Day03.txt";
     private readonly string PATH;
@@ -24,13 +24,13 @@ public class FirstPart
 
         foreach (string line in lines)
         {
-            prioritySum += FindCommon(line);
+            prioritySum += CalculatePriority(line);
         }
 
         return prioritySum;
     }
 
-    private static int FindCommon(string word)
+    private static int CalculatePriority(string word)
     {
         if (string.IsNullOrWhiteSpace(word))
         {
@@ -56,6 +56,6 @@ public class FirstPart
 
         return commonCharacter >= CHARACTER_UPPER_A && commonCharacter <= CHARACTER_UPPER_Z ?
             commonCharacter - CHARACTER_UPPER_A + 27 :
-            commonCharacter - CHARACTER_LOWWER_A + 1;
+            commonCharacter - CHARACTER_LOWER_A + 1;
     }
 }

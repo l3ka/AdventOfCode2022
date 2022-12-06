@@ -16,7 +16,7 @@ public class FirstPart
     public async Task<int> Calculate()
     {
         string signal = await File.ReadAllTextAsync(PATH);
-        HashSet<char> characters = new HashSet<char>();
+        HashSet<char> characters = new();
         int startOfPacketIndex = 0;
 
         for (int i = 0, j = 0; i < signal.Length; )
@@ -25,17 +25,17 @@ public class FirstPart
             {
                 characters.Add(signal[i]);
                 ++i;
+
+                if (characters.Count == START_OF_PACKET_LENGTH)
+                {
+                    startOfPacketIndex = i;
+                    break;
+                }
             }
             else
             {
                 characters.Remove(signal[j]);
                 ++j;
-            }
-
-            if (characters.Count == START_OF_PACKET_LENGTH)
-            {
-                startOfPacketIndex = i;
-                break;
             }
         }
 
