@@ -23,3 +23,7 @@
 ### Day 05 - [Supply Stacks](https://adventofcode.com/2022/day/5)
 * Crates: QNNTGTPFN 
 * Crates: GGNPJBTTR 
+
+### Day 06 - [Tuning Trouble](https://adventofcode.com/2022/day/6)
+* Start of Packet Marker: 1929 
+* Start of Message Marker: 3298 
