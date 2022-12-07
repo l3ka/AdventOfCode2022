@@ -20,7 +20,7 @@ public class SecondPart
 
     public async Task<long> Calculate()
     {
-        string[] lines = await File.ReadAllLinesAsync(PATH);
+        string[] lines = await System.IO.File.ReadAllLinesAsync(PATH);
 
         Directory? currentDirectory = new(ROOT_DIRECTORY, 0);
 
@@ -32,7 +32,7 @@ public class SecondPart
 
                 currentDirectory = directoryName.Contains("..") ?
                     currentDirectory?.GetParent() :
-                    currentDirectory?.GetDirectory(directoryName);
+                    currentDirectory?.GetSubDirectoryByName(directoryName);
             }
             else if (lines[i].StartsWith(COMMAND_LS))
             {
@@ -48,7 +48,8 @@ public class SecondPart
                 }
                 else if (int.TryParse(lines[i].Split(' ')[0], out int fileSize))
                 {
-                    currentDirectory?.UpdateDirectorySize(fileSize);
+                    string fileName = lines[i].Split(' ')[1];
+                    currentDirectory?.AddFile(new File(fileName, fileSize));
                 }
             }
         }

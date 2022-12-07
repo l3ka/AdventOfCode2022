@@ -10,12 +10,15 @@ public class Directory
 
     private readonly List<Directory> SubDirectories;
 
+    private readonly List<File> Files;
+
     public Directory(string name, long size, Directory? parent = null)
     {
         Name = name;
         Size = size;
         Parent = parent;
         SubDirectories = new List<Directory>();
+        Files = new List<File>();
     }
 
     public void AddSubDirectory(Directory directory)
@@ -31,15 +34,22 @@ public class Directory
         SubDirectories.Add(directory);
     }
 
-    public void UpdateDirectorySize(long size)
+    public void AddFile(File file)
     {
-        Size += size;
+        // If file already exist, skip it
+        foreach (var item in Files)
+        {
+            if (item.Name.Equals(file.Name))
+            {
+                return;
+            }
+        }
 
-        // Update sizes of all Parents directories
-        Parent?.UpdateDirectorySize(size);
+        Files.Add(file);
+        UpdateDirectorySize(file.Size);
     }
 
-    public Directory GetDirectory(string name)
+    public Directory GetSubDirectoryByName(string name)
     {
         foreach (var directory in SubDirectories)
         {
@@ -115,4 +125,14 @@ public class Directory
 
         return toDelete;
     }
+
+    private void UpdateDirectorySize(long size)
+    {
+        Size += size;
+
+        // Update sizes of all Parents directories
+        Parent?.UpdateDirectorySize(size);
+    }
 }
+
+public record File(string Name, long Size);
