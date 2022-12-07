@@ -27,3 +27,7 @@
 ### Day 06 - [Tuning Trouble](https://adventofcode.com/2022/day/6)
 * Start of Packet Marker: 1929 
 * Start of Message Marker: 3298 
+
+### Day 07 - [No Space Left On Device](https://adventofcode.com/2022/day/7)
+* Sum of the Total Sizes of Directories (size lower than 100_000): 1778099 
+* Size of the Directory to Delete: 1623571 
