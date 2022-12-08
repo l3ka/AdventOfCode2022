@@ -31,3 +31,7 @@
 ### Day 07 - [No Space Left On Device](https://adventofcode.com/2022/day/7)
 * Sum of the Total Sizes of Directories (size lower than 100_000): 1778099 
 * Size of the Directory to Delete: 1623571 
+
+### Day 08 - [Treetop Tree House](https://adventofcode.com/2022/day/8)
+* Number of Visible Tree: 1693 
+* Highest Scenic Score: 422059 
