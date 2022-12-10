@@ -39,3 +39,7 @@
 ### Day 09 - [Rope Bridge](https://adventofcode.com/2022/day/9)
 * Number of Position the tail od the Rope Visit at Least One (with 2 knots): 6332 
 * Number of Position the tail od the Rope Visit at Least One (with 10 knots): 2511 
+
+### Day 10 - [Cathode-Ray Tube](https://adventofcode.com/2022/day/10)
+* Sum of Six Signal Strenghts: 12980 
+* Capital Letters that Appear on CRT: BRJLFULP 
