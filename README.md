@@ -35,3 +35,7 @@
 ### Day 08 - [Treetop Tree House](https://adventofcode.com/2022/day/8)
 * Number of Visible Tree: 1693 
 * Highest Scenic Score: 422059 
+
+### Day 09 - [Rope Bridge](https://adventofcode.com/2022/day/9)
+* Number of Position the tail od the Rope Visit at Least One (with 2 knots): 6332 
+* Number of Position the tail od the Rope Visit at Least One (with 10 knots): 2511 
