@@ -43,3 +43,7 @@
 ### Day 10 - [Cathode-Ray Tube](https://adventofcode.com/2022/day/10)
 * Sum of Six Signal Strenghts: 12980 
 * Capital Letters that Appear on CRT: BRJLFULP 
+
+### Day 11 - [Monkey in the Middle](https://adventofcode.com/2022/day/11)
+* Level of Monkey Business After 20 Rounds of Stuff-Slinging Simian Shenanigans: 55930 
+* Level of Monkey Business After 10_000 Rounds: 14636993466 
