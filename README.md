@@ -51,3 +51,7 @@
 ### Day 12 - [Hill Climbing Algorithm](https://adventofcode.com/2022/day/12)
 * Number of Steps, from S to E: 425 
 * Number of Steps, from any start (both S and a) to E: 418 
+
+### Day 13 - [Distress Signal](https://adventofcode.com/2022/day/13)
+* Sum of Indices of Parts that are in Right Order: 6369 
+* Decoder Key for the Distress Signal: 25800 
