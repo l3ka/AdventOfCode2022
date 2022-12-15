@@ -55,3 +55,7 @@
 ### Day 13 - [Distress Signal](https://adventofcode.com/2022/day/13)
 * Sum of Indices of Parts that are in Right Order: 6369 
 * Decoder Key for the Distress Signal: 25800 
+
+### Day 14 - [Regolith Reservoir](https://adventofcode.com/2022/day/14)
+* Units of Sand that Come to Rest Before Sand Starts Flowing into the Abyss below: 1133 
+* Units of Sand that Come to Rest Before the Source of the Sand becomes blocked: 27566 
