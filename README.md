@@ -59,3 +59,7 @@
 ### Day 14 - [Regolith Reservoir](https://adventofcode.com/2022/day/14)
 * Units of Sand that Come to Rest Before Sand Starts Flowing into the Abyss below: 1133 
 * Units of Sand that Come to Rest Before the Source of the Sand becomes blocked: 27566 
+
+### Day 15 - [Beacon Exclusion Zone](https://adventofcode.com/2022/day/15)
+* Number of Positions that cannot contain a beacon (In the row where y=2000000): 5403290 
+* Tuning Frequency of the Distress Beacon: 10291582906626 
